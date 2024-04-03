@@ -1,0 +1,209 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Cadastrar Processo" (nzAfterOpen)="onModalOpen()" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzFooter]="null" nzWidth="80%">
+  <ng-container *nzModalContent>
+    <div *ngIf="modalVisible">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <form nz-form [formGroup]="form">
+                <div class="row">
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="numero_unico">Nr. Único</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="numero_unico" type="text" id="numero_unico" formControlName="numero_unico"/>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="num_processo">Nr. Processo</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="num_processo" type="text" id="num_processo" formControlName="num_processo"/>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="dat_inicio" >Data Processo</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <nz-date-picker id="dat_inicio" class="form-control input-lg" formControlName="dat_inicio" [nzFormat]="dateFormat"></nz-date-picker>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="dat_distribuicao" >Data Distribuição</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <nz-date-picker id="dat_distribuicao" class="form-control input-lg" formControlName="dat_distribuicao" [nzFormat]="dateFormat"></nz-date-picker>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="dat_notificacao" >Data Notificação</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <nz-date-picker id="dtNotificacao" class="form-control input-lg" formControlName="dat_notificacao" [nzFormat]="dateFormat"></nz-date-picker>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="num_distribuicao">Nr. Distribuição</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="num_distribuicao" type="text" id="num_distribuicao" formControlName="num_distribuicao"/>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="num_notificacao">Nr. Notificação</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="num_notificacao" type="text" id="num_notificacao" />
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="num_auto_infracao">Auto Infração</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="num_auto_infracao" type="text" id="num_auto_infracao" formControlName="num_auto_infracao"/>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="numero_cda">Nr. CDA</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="numero_cda" type="text" id="numero_cda" formControlName="numero_cda"/>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="num_registro">Nr. Registro</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input class="form-control input-lg" name="num_registro" type="text" id="num_registro" />
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="ind_autor_reu">Parte Defendida</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <nz-radio-group id="ind_autor_reu" >
+                          <label nz-radio nzValue="R">Réu</label>
+                          <label nz-radio nzValue="A">Autor</label>
+                        </nz-radio-group>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-1">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="ind_recurso"></nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <label id="recruso" nz-checkbox >Recurso</label>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-1">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="ind_administrativo"></nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <label id="ind_administrativo" nz-checkbox >Administrativo</label>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-12">
+                    <hr class="text-uam">
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="dsc_rito">Rito</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <nz-select class="input-lg" id="dsc_rito" >
+                          <nz-option nzValue="ORDINÁRIO" nzLabel="ORDINÁRIO"></nz-option>
+                          <nz-option nzValue="SUMARISSÍMO" nzLabel="SUMARISSÍMO"></nz-option>
+                        </nz-select>
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-2">
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="24" nzFor="status">Status</nz-form-label>
+                        <nz-select id="status_processo" name="status_processo" class="input-lg" nzShowSearch nzAllowClear formControlName="status_processo">
+                            <nz-option *ngFor="let dataStatus of dataStatus" [nzLabel]="dataStatus.id + ' - ' + dataStatus.STATUS_PROCESSO" [nzValue]="dataStatus.id + ' - ' + dataStatus.STATUS_PROCESSO"></nz-option>
+                        </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="ramo_processo">Ramo</nz-form-label>
+                      <nz-select id="ramo" name="ramo_processo" class="input-lg" nzShowSearch nzAllowClear formControlName="ramo_processo">
+                        <nz-option *ngFor="let dataRamo of dataRamo" [nzLabel]="dataRamo.id + ' - ' + dataRamo.RAMO_PROCESSO" [nzValue]="dataRamo.id + ' - ' + dataRamo.RAMO_PROCESSO"></nz-option>
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="tipo_acoes">Tipo de Ação</nz-form-label>
+                      <nz-select id="tipoAcao" class="input-lg" name="tipo_acoes" nzShowSearch nzAllowClear formControlName="tipo_acoes">
+                        <nz-option *ngFor="let dataTipoAcoes of dataTipoAcoes" [nzLabel]="dataTipoAcoes.id + ' - ' + dataTipoAcoes.TIPO_ACOES" [nzValue]="dataTipoAcoes.id + ' - ' + dataTipoAcoes.TIPO_ACOES"></nz-option>
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                      <nz-form-item>
+                        <nz-form-label [nzSpan]="24" nzFor="dsc_materia_processo">Matéria Discussão</nz-form-label>
+                        <nz-select id="materia" class="input-lg" name="dsc_materia_processo" nzShowSearch nzAllowClear formControlName="dsc_materia_processo">
+                          <nz-option *ngFor="let dataMateriaDiscussao of dataMateriaDiscussao" [nzLabel]="dataMateriaDiscussao.id + ' - ' + dataMateriaDiscussao.DSC_MATERIA_DISCUSSAO" [nzValue]="dataMateriaDiscussao.id + ' - ' + dataMateriaDiscussao.DSC_MATERIA_DISCUSSAO"></nz-option>
+                        </nz-select>
+                      </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="vara">Vara Cartório</nz-form-label>
+                      <nz-select id="vara" class="input-lg" nzShowSearch nzAllowClear nzPlaceHolder="" >
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="unidade">Unidade</nz-form-label>
+                      <nz-select id="unidade" class="input-lg" nzShowSearch nzAllowClear nzPlaceHolder="" >
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="orgao">Orgão Competente</nz-form-label>
+                      <nz-select id="orgao" class="input-lg" nzShowSearch nzAllowClear nzPlaceHolder="" >
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="motivoEncerra">Motivo do Encerramento</nz-form-label>
+                      <nz-select id="motivoEncerra" class="input-lg" nzShowSearch nzAllowClear nzPlaceHolder="" >
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label [nzSpan]="24" nzFor="divisao">Divisão</nz-form-label>
+                      <nz-select id="divisao" class="input-lg" nzShowSearch nzAllowClear nzPlaceHolder="" >
+                      </nz-select>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button mat-button class="btn btn-uam-sm m-2" color="primary" (click)="salvarProcesso()"><i class="fa-solid fa-save"></i> Salvar Processo</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</nz-modal>

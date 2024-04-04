@@ -43,14 +43,11 @@
     botaoMenu.addEventListener('click', function() {
 
 
-      // Verificar se a barra lateral está visível ou oculta
       if (sidebar.style.display === 'none') {
-        // Se estiver oculta, torná-la visível
         sidebar.style.display = 'block';
         content.classList.remove('col-12');
         content.classList.add('col-10');
       } else {
-        // Se estiver visível, torná-la oculta
         sidebar.style.display = 'none';
         content.classList.remove('col-10');
         content.classList.add('col-12');

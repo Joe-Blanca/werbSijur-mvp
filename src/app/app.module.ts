@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProcessoComponent } from './modules/processo/pages/processo.component';
+import { ProcessoComponent } from './modules/processo/pages/processo/processo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -25,6 +25,9 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { ProcessDetalheComponent } from './modules/processo/pages/processoDetalhe/processoDetalhe.html.component';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { TesteComponent } from './modules/processo/components/partes/partes.component';
 
 registerLocaleData(pt);
 
@@ -34,7 +37,9 @@ registerLocaleData(pt);
     ProcessoComponent,
     NavbarComponent,
     SidebarComponent,
-    NovoProcessoComponent
+    NovoProcessoComponent,
+    ProcessDetalheComponent,
+    TesteComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ registerLocaleData(pt);
     ReactiveFormsModule,
     NzTableModule,
     NzDividerModule,
-    NzDropDownModule
+    NzDropDownModule,
+    NzTabsModule
     ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR }

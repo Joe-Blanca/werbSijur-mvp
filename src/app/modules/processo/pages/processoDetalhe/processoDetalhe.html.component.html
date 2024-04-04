@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-12">
+    <div class="h4 text-uam"><i class="fa-solid fa-scale-balanced"></i> WEB
+      SISJUR - Detalhes do Processos - Cod.: {{id}}</div>
+  </div>
+  <div class="col-12">
+    <button mat-button class="btn btn-uam-sm m-2" color="primary"
+      (click)="showModalFromParent()">
+      <i class="fa-solid fa-file"></i> Capa do Processo
+    </button>
+    <div class="col-12 mt-3">
+      <hr class="text-uam">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active text-uam" id="pills-partes-tab" data-bs-toggle="pill" data-bs-target="#pills-partes" type="button" role="tab" aria-controls="pills-partes" aria-selected="true"><i class="fa-solid fa-users"></i> Partes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-advogados-tab" data-bs-toggle="pill" data-bs-target="#pills-advogados" type="button" role="tab" aria-controls="pills-advogados" aria-selected="false"><i class="fa-solid fa-user-tie"></i> Advogados</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-pretensao-tab" data-bs-toggle="pill" data-bs-target="#pills-pretensao" type="button" role="tab" aria-controls="pills-pretensao" aria-selected="false"><i class="fa-solid fa-bullseye"></i> Pretenção</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-fases-tab" data-bs-toggle="pill" data-bs-target="#pills-fases" type="button" role="tab" aria-controls="pills-fases" aria-selected="false"><i class="fa-solid fa-timeline"></i> Fases</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-movimento-tab" data-bs-toggle="pill" data-bs-target="#pills-movimento" type="button" role="tab" aria-controls="pills-movimento" aria-selected="false"><i class="fa-solid fa-arrows-up-down-left-right"></i> Movimento</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-apensos-tab" data-bs-toggle="pill" data-bs-target="#pills-apensos" type="button" role="tab" aria-controls="pills-apensos" aria-selected="false"><i class="fa-solid fa-paperclip"></i> Apensos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-recurso-tab" data-bs-toggle="pill" data-bs-target="#pills-recurso" type="button" role="tab" aria-controls="pills-recurso" aria-selected="false"><i class="fa-solid fa-hand-point-up"></i> Recurso</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-imgdoc-tab" data-bs-toggle="pill" data-bs-target="#pills-imgdoc" type="button" role="tab" aria-controls="pills-imgdoc" aria-selected="false"><i class="fa-solid fa-image"></i> Imagen/Documento</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-servicos-tab" data-bs-toggle="pill" data-bs-target="#pills-servicos" type="button" role="tab" aria-controls="pills-servicos" aria-selected="false"><i class="fa-solid fa-id-card-clip"></i> Serviços Contratados</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-financeiro-tab" data-bs-toggle="pill" data-bs-target="#pills-financeiro" type="button" role="tab" aria-controls="pills-financeiro" aria-selected="false"><i class="fa-solid fa-sack-dollar"></i> Financeiro</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-uam" id="pills-publicacoes-tab" data-bs-toggle="pill" data-bs-target="#pills-publicacoes" type="button" role="tab" aria-controls="pills-publicacoes" aria-selected="false"><i class="fa-solid fa-newspaper"></i> Publicações</button>
+        </li>
+
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-partes" role="tabpanel" aria-labelledby="pills-partes-tab"><app-partes></app-partes></div>
+        <div class="tab-pane fade" id="pills-advogados" role="tabpanel" aria-labelledby="pills-advogados-tab">conteudo advogados</div>
+        <div class="tab-pane fade" id="pills-pretensao" role="tabpanel" aria-labelledby="pills-pretensao-tab">conteudo pretensão</div>
+        <div class="tab-pane fade" id="pills-movimento" role="tabpanel" aria-labelledby="pills-movimento-tab">conteudo movimento</div>
+        <div class="tab-pane fade" id="pills-apensos" role="tabpanel" aria-labelledby="pills-apensos-tab">conteudo apensos</div>
+        <div class="tab-pane fade" id="pills-recurso" role="tabpanel" aria-labelledby="pills-recurso-tab">conteudo recurso</div>
+        <div class="tab-pane fade" id="pills-imgdoc" role="tabpanel" aria-labelledby="pills-imgdoc-tab">conteudo imgdoc</div>
+        <div class="tab-pane fade" id="pills-servicos" role="tabpanel" aria-labelledby="pills-servicos-tab">conteudo servicos</div>
+        <div class="tab-pane fade" id="pills-financeiro" role="tabpanel" aria-labelledby="pills-financeiro-tab">conteudo financeiro</div>
+        <div class="tab-pane fade" id="pills-publicacoes" role="tabpanel" aria-labelledby="pills-publicacoes-tab">conteudo publicacoes</div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-novo-processo></app-novo-processo>

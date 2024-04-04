@@ -1,17 +1,15 @@
-import { ProcessoService } from '../services/processo.service';
+import { Router } from '@angular/router';
+import { ProcessoService } from '../../services/processo.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { processo } from 'src/app/models/processo.model';
-import { NovoProcessoComponent } from '../components/novo-processo/novo-processo.component';
-
-
+import { NovoProcessoComponent } from '../../components/novo-processo/novo-processo.component';
 
 @Component({
   selector: 'app-processo',
   templateUrl: './processo.component.html',
-  styleUrls: ['./processo.component.scss']
+  styleUrls: ['./processo.component.scss'],
 })
 export class ProcessoComponent {
-
   @ViewChild(NovoProcessoComponent)
   novoProcessoComponent!: NovoProcessoComponent;
 
@@ -33,17 +31,24 @@ export class ProcessoComponent {
     'ramo',
     'tipo',
     'materia',
-    'action'
-  ]
+    'action',
+  ];
 
-  constructor(private ProcessoService: ProcessoService) {}
+  constructor(
+    private ProcessoService: ProcessoService,
+    private Router: Router
+  ) {}
 
   ngOnInit(): void {
-        this.listarProcessos()
+    this.listarProcessos();
   }
 
   ngAfterViewInit(): void {
     this.listenToProcessoCadastradoEvent();
+  }
+
+  abrirDetalhes(id: number | undefined) {
+    this.Router.navigate(['/processosDetalhe', id]);
   }
 
   private listenToProcessoCadastradoEvent(): void {
@@ -58,8 +63,8 @@ export class ProcessoComponent {
     this.novoProcessoComponent.showModal();
   }
 
-  listarProcessos(){
-    this.ProcessoService.listarTodosProcessos().subscribe(retorno => {
+  listarProcessos() {
+    this.ProcessoService.listarTodosProcessos().subscribe((retorno) => {
       if (Array.isArray(retorno)) {
         this.dataSource = retorno;
       } else {
@@ -67,7 +72,4 @@ export class ProcessoComponent {
       }
     });
   }
-
-
-
 }

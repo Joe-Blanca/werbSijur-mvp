@@ -1,4 +1,4 @@
-export class processo{
+export class Processo{
   public id?: number
   public num_processo!: string
   public status_processo!: string

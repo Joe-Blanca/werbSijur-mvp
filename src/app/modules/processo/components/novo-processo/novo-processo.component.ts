@@ -1,4 +1,3 @@
-
 import { DivisaoService } from './../../services/divisao.service';
 import { MotivoEncerramentoService } from './../../services/motivoEncerramento.service';
 import { MotivoEncerramento } from './../../../../models/motivoEncerramento.model';
@@ -20,7 +19,7 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { processo } from 'src/app/models/processo.model';
+import { Processo } from 'src/app/models/processo.model';
 import { Status } from 'src/app/models/status.model';
 import {
   FormControl,
@@ -45,6 +44,8 @@ export class NovoProcessoComponent implements OnInit {
   checked = true;
   dateFormat = 'dd/MM/yyyy';
   isVisible = false;
+  visibleId : boolean = false;
+  visibleLabel: boolean = true;
   modalVisible = false;
   listStatus: any;
   form!: FormGroup;
@@ -69,10 +70,10 @@ export class NovoProcessoComponent implements OnInit {
     private tipoAcoesService: tipoAcoesService,
     private MateriaDiscussaoService: MateriaDiscussaoService,
     private VaraService: VaraService,
-    private UnidadeService : UnidadeService,
-    private OrgaoCompetenteService : OrgaoCompetenteService,
-    private MotivoEncerramentoService : MotivoEncerramentoService,
-    private DivisaoService : DivisaoService
+    private UnidadeService: UnidadeService,
+    private OrgaoCompetenteService: OrgaoCompetenteService,
+    private MotivoEncerramentoService: MotivoEncerramentoService,
+    private DivisaoService: DivisaoService
   ) {
     this.form = this.fb.group({
       numero_unico: [null, Validators.required],
@@ -97,7 +98,8 @@ export class NovoProcessoComponent implements OnInit {
       unidade: [null, Validators.required],
       orgaoCompetente: [null, Validators.required],
       motivoEncerramento: [null, Validators.required],
-      divisao: [null, Validators.required]
+      divisao: [null, Validators.required],
+      id: [null],
     });
   }
 
@@ -132,21 +134,34 @@ export class NovoProcessoComponent implements OnInit {
   }
 
   salvarProcesso() {
-    let dados = this.form.value as processo;
-    console.log(dados);
-     if (this.form.valid) {
+    let dados = this.form.value as Processo;
 
-       this.processoService
-         .cadastrarProcesso(dados)
-         .subscribe((retorno: any) => {
-           console.log(retorno);
-           this.processoCadastrado.emit();
-           this.form.reset();
-         });
-     } else {
-       this.form.markAllAsTouched();
-       this.form.updateValueAndValidity();
-     }
+    if (this.form.valid) {
+      if (!dados.id) {
+        this.inserirProcesso(dados);
+      } else {
+        this.atulizaProcesso(dados);
+      }
+    } else {
+      this.form.markAllAsTouched();
+      this.form.updateValueAndValidity();
+    }
+  }
+
+  inserirProcesso(processo: Processo) {
+    this.processoService.post(processo).subscribe((retorno: any) => {
+      console.log(retorno);
+      this.processoCadastrado.emit();
+      this.form.reset();
+    });
+  }
+
+  atulizaProcesso(processo: Processo) {
+    this.processoService.put(processo).subscribe((retorno: any) => {
+      console.log(retorno);
+      this.processoCadastrado.emit();
+      this.setDataProcesso(processo);
+    });
   }
 
   onChangeDtProcesso(result: Date): void {
@@ -212,50 +227,50 @@ export class NovoProcessoComponent implements OnInit {
   }
 
   listarUnidade() {
-    this.UnidadeService
-      .listarTodasUnidades()
-      .subscribe((retornoUnidade) => {
-        if (Array.isArray(retornoUnidade)) {
-          this.dataUnidade = retornoUnidade;
-        } else {
-          this.dataUnidade = [retornoUnidade];
-        }
-      });
+    this.UnidadeService.listarTodasUnidades().subscribe((retornoUnidade) => {
+      if (Array.isArray(retornoUnidade)) {
+        this.dataUnidade = retornoUnidade;
+      } else {
+        this.dataUnidade = [retornoUnidade];
+      }
+    });
   }
 
   listarOrgaoCompetente() {
-    this.OrgaoCompetenteService
-      .listarTodasOrgaoCompetentes()
-      .subscribe((retornoOrgao) => {
+    this.OrgaoCompetenteService.listarTodasOrgaoCompetentes().subscribe(
+      (retornoOrgao) => {
         if (Array.isArray(retornoOrgao)) {
           this.dataOrgaoCompetente = retornoOrgao;
         } else {
           this.dataOrgaoCompetente = [retornoOrgao];
         }
-      });
+      }
+    );
   }
 
   listarMotivoDesligamento() {
-    this.MotivoEncerramentoService
-      .listarTodasMotivoEncerramentos()
-      .subscribe((retornoMotivo) => {
+    this.MotivoEncerramentoService.listarTodasMotivoEncerramentos().subscribe(
+      (retornoMotivo) => {
         if (Array.isArray(retornoMotivo)) {
           this.dataMotivoEncerramento = retornoMotivo;
         } else {
           this.dataMotivoEncerramento = [retornoMotivo];
         }
-      });
+      }
+    );
   }
 
   listarDivisao() {
-    this.DivisaoService
-      .listarTodasdivisaos()
-      .subscribe((retornoDivisao) => {
-        if (Array.isArray(retornoDivisao)) {
-          this.dataDivisao = retornoDivisao;
-        } else {
-          this.dataDivisao = [retornoDivisao];
-        }
-      });
+    this.DivisaoService.listarTodasdivisaos().subscribe((retornoDivisao) => {
+      if (Array.isArray(retornoDivisao)) {
+        this.dataDivisao = retornoDivisao;
+      } else {
+        this.dataDivisao = [retornoDivisao];
+      }
+    });
+  }
+
+  setDataProcesso(processoData: Processo) {
+    this.form.patchValue(processoData);
   }
 }

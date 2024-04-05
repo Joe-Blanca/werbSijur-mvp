@@ -5,7 +5,8 @@
   </div>
   <div class="col-12">
     <button mat-button class="btn btn-uam-sm m-2" color="primary"
-      (click)="showModalFromParent()">
+      (click)="showModalFromParent()"
+      (click)="editarProcesso({id});">
       <i class="fa-solid fa-file"></i> Capa do Processo
     </button>
     <div class="col-12 mt-3">
@@ -42,9 +43,8 @@
           <button class="nav-link text-uam" id="pills-financeiro-tab" data-bs-toggle="pill" data-bs-target="#pills-financeiro" type="button" role="tab" aria-controls="pills-financeiro" aria-selected="false"><i class="fa-solid fa-sack-dollar"></i> Financeiro</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link text-uam" id="pills-publicacoes-tab" data-bs-toggle="pill" data-bs-target="#pills-publicacoes" type="button" role="tab" aria-controls="pills-publicacoes" aria-selected="false"><i class="fa-solid fa-newspaper"></i> Publicações</button>
+          <button class="nav-link text-uam" id="pills-publicacoes-tab" data-bs-toggle="pill" data-bs-target="#pills-publicacoes" type="button" role="tab" aria-controls="pills-publicacoes" aria-selected="false"><i class="fa-solid fa-sack-dollar"></i> Publicações</button>
         </li>
-
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-partes" role="tabpanel" aria-labelledby="pills-partes-tab"><app-partes></app-partes></div>

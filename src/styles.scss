@@ -28,16 +28,16 @@ body {
   color: aliceblue !important;
 }
 
-.btn-uam
+.bg-uam-light
 {
-  background-color:#26785c !important;
+  background-color:#2bb486 !important;
   color: aliceblue !important;
   width: 100%;
 }
 
-.nav-link.active
+.btn-uam
 {
-  background-color:#2bb486 !important;
+  background-color:#26785c !important;
   color: aliceblue !important;
   width: 100%;
 }
@@ -46,6 +46,25 @@ body {
 {
   background-color:#26785c !important;
   color: aliceblue !important;
+}
+
+.btn-danger-sm
+{
+  background-color:#e66464 !important;
+  color: aliceblue !important;
+}
+
+.btn-uam-sm-light
+{
+  background-color:#2bb486 !important;
+  color: aliceblue !important;
+}
+
+.nav-link.active
+{
+  background-color:#2bb486 !important;
+  color: aliceblue !important;
+  width: 100%;
 }
 
 .btn-primary-sm
@@ -121,3 +140,6 @@ nz-select-top-control{
   margin-right: 8px;
 }
 
+.text-center{
+  text-align: center !important;
+}

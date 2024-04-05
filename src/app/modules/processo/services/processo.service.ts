@@ -1,26 +1,32 @@
-import { Observable, retry } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { processo } from 'src/app/models/processo.model';
+import { Processo } from 'src/app/models/processo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProcessoService {
 
-constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) { }
 
-private classController: string = 'listaProcessos';
+  private classController: string = 'listaProcessos';
 
-  listarTodosProcessos(): Observable<processo>{
-    return this.apiService.get(environment.api + this.classController)
+  getAll(): Observable<Processo[]> {
+    return this.apiService.get(environment.api + this.classController);
   }
 
-  cadastrarProcesso(objeto : processo) : Observable <processo>{
-    return this.apiService.post(environment.api + this.classController, objeto)
+  getId(id: number): Observable<Processo> {
+    return this.apiService.get(environment.api + this.classController + '/' + id);
+  }
+
+  post(processo: Processo): Observable<Processo> {
+    return this.apiService.post(environment.api + this.classController, processo);
+  }
+
+  put(processo: Processo): Observable<Processo> {
+    return this.apiService.put(environment.api + this.classController + '/' + processo.id, processo);
   }
 
 }
-
-

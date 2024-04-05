@@ -7,6 +7,16 @@
             <div class="card-body">
               <form nz-form [formGroup]="form">
                 <div class="row">
+                  <div class="col-4">
+                    <nz-form-item>
+                      <nz-form-label *ngIf="visibleLabel" [nzSpan]="24" nzFor="id"><small>*Preencha todos os campos obrigatórios!</small></nz-form-label>
+                      <nz-form-label *ngIf="visibleId" [nzSpan]="24" nzFor="id">Cod.:</nz-form-label>
+                      <nz-form-control [nzSpan]="24">
+                        <input *ngIf="visibleId" class="form-control input-lg" name="id" type="text" id="id" formControlName="id" [disabled]="true" />
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+                  <div class="col-8"></div>
                   <div class="col-2">
                     <nz-form-item>
                       <nz-form-label [nzSpan]="24" nzFor="numero_unico">Nr. Único</nz-form-label>

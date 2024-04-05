@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { ProcessoService } from '../../services/processo.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { processo } from 'src/app/models/processo.model';
+import { Processo } from 'src/app/models/processo.model';
 import { NovoProcessoComponent } from '../../components/novo-processo/novo-processo.component';
 
 @Component({
@@ -22,7 +22,7 @@ export class ProcessoComponent {
   searchValue = '';
   visible = false;
 
-  dataSource: processo[] = [];
+  dataSource: Processo[] = [];
 
   displayedColumns: string[] = [
     'codigo',
@@ -53,9 +53,9 @@ export class ProcessoComponent {
 
   private listenToProcessoCadastradoEvent(): void {
     if (this.novoProcessoComponent) {
-      this.novoProcessoComponent.processoCadastrado.subscribe(() => {
-        this.listarProcessos();
-      });
+        this.novoProcessoComponent.processoCadastrado.subscribe(() => {
+          this.listarProcessos();
+        });
     }
   }
 
@@ -64,7 +64,7 @@ export class ProcessoComponent {
   }
 
   listarProcessos() {
-    this.ProcessoService.listarTodosProcessos().subscribe((retorno) => {
+    this.ProcessoService.getAll().subscribe((retorno) => {
       if (Array.isArray(retorno)) {
         this.dataSource = retorno;
       } else {

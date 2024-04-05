@@ -1,3 +1,4 @@
+import { PartesComponent } from './modules/processo/components/partes/partes.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { ProcessDetalheComponent } from './modules/processo/pages/processoDetalhe/processoDetalhe.html.component';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
-import { TesteComponent } from './modules/processo/components/partes/partes.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 registerLocaleData(pt);
 
@@ -39,7 +40,7 @@ registerLocaleData(pt);
     SidebarComponent,
     NovoProcessoComponent,
     ProcessDetalheComponent,
-    TesteComponent
+    PartesComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,8 @@ registerLocaleData(pt);
     NzTableModule,
     NzDividerModule,
     NzDropDownModule,
-    NzTabsModule
+    NzTabsModule,
+    NzInputModule
     ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR }

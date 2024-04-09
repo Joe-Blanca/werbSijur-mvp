@@ -1,0 +1,43 @@
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <button mat-button class="btn btn-uam-sm-light m-2" color="primary">
+      <i class="fa-solid fa-square-plus"></i>
+      </button>
+    <hr class="rounded text-uam">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataFases">
+      <thead>
+        <tr>
+            <th>Cod.</th>
+            <th>Fase Processo</th>
+            <th>1ª Fase</th>
+            <th>Nr. Fase</th>
+            <th>Fase Atual</th>
+            <th>Data</th>
+            <th>Orgão Julgador</th>
+            <th>Nr. Distribuição</th>
+            <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataFases">
+          <td>{{data.NUM_ORDEM}}</td>
+          <td>{{data.FASE_PROCESSO}}</td>
+          <td>{{data.IND_FASE === 'S' ? 'Sim' : data.IND_FASE === 'N' ? 'Não' : '' }}</td>
+          <td>{{data.NUM_FASE}}</td>
+          <td>{{data.IND_ATUAL === 'S' ? 'Sim' : data.IND_ATUAL === 'N' ? 'Não' : '' }}</td>
+          <td>{{data.DAT_FASE}}</td>
+          <td nz-tooltip nzTooltipTitle="{{data.VARA}}">{{data.VARA.length > 15 ? data.VARA.substring(0, 15) : data.VARA}} ...</td>
+          <td>{{data.NUM_DISTRIBUICAO}}</td>
+          <td class="text-center">
+            <button mat-button class="btn btn-danger-sm m-2" title="Excluir Parte">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button mat-button class="btn btn-warning-sm m-2"  title="Editar Parte">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

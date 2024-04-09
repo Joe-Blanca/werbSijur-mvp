@@ -158,7 +158,6 @@ export class NovoProcessoComponent implements OnInit {
 
   atulizaProcesso(processo: Processo) {
     this.processoService.put(processo).subscribe((retorno: any) => {
-      console.log(retorno);
       this.processoCadastrado.emit();
       this.setDataProcesso(processo);
     });

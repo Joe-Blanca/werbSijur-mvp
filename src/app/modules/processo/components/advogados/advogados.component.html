@@ -1,26 +1,26 @@
 <div class="col-12">
   <div class="card-body p-3 border">
-    <button mat-button class="btn btn-uam-sm-light m-2"  (click)="listarPartes();">
+    <button mat-button class="btn btn-uam-sm-light m-2" color="primary">
       <i class="fa-solid fa-square-plus"></i>
       </button>
     <hr class="rounded text-uam">
-    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataPartes">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataAdvogados">
       <thead>
         <tr>
             <th>Cod.</th>
+            <th>Defende</th>
             <th>Nome</th>
-            <th>Participação</th>
-            <th>Responsabilidade</th>
+            <th>Origem</th>
             <th>Observações</th>
             <th class="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of dataPartes">
+        <tr *ngFor="let data of dataAdvogados">
           <td>{{data.id}}</td>
+          <td>{{data.IND_DEFESA === 'R' ? 'Réu' : data.IND_DEFESA === 'A' ? 'Autor' : '' }}</td>
           <td>{{data.DS_NOME}}</td>
-          <td>{{ data.IND_PARTICIPACAO === 'R' ? 'Réu' : data.IND_PARTICIPACAO === 'A' ? 'Autor' : '' }}</td>
-          <td>{{data.IND_RESPONSABILIDADE}}</td>
+          <td>{{data.DSC_ORIGEM_CADASTRO}}</td>
           <td>{{data.DSC_OBSERVACAO}}</td>
           <td class="text-center">
             <button mat-button class="btn btn-danger-sm m-2"  title="Excluir Parte">

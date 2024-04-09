@@ -1,0 +1,36 @@
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <button mat-button class="btn btn-uam-sm-light m-2" color="primary" (click)="listarServicosContratados();">
+      <i class="fa-solid fa-square-plus"></i>
+      </button>
+    <hr class="rounded text-uam">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null">
+      <thead>
+        <tr>
+            <th>Cod.</th>
+            <th>Contratado</th>
+            <th>Valor Total Serviço</th>
+            <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataServicosContratados">
+          <td>{{data.id}}</td>
+          <td>{{data.NOME_PARTE}}</td>
+          <td>{{data.VLR_TOTAL}}</td>
+          <td class="text-center">
+            <button mat-button class="btn btn-danger-sm m-2" title="Excluir Serviço">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button mat-button class="btn btn-warning-sm m-2" title="Editar Serviço">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button mat-button class="btn btn-primary-sm m-2" title="Adicionar Evento">
+              <i class="fa-solid fa-square-plus"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

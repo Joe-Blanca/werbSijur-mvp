@@ -15,30 +15,33 @@
   <div class="col-12">
     <div class="card-body p-3 border">
       <hr class="rounded text-uam">
-      <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataSource">
-        <thead>
-          <tr>
-            <th>Cod.</th>
-            <th>Nr. Processo</th>
-            <th>Status</th>
-            <th>Ramo</th>
-            <th>Tipo</th>
-            <th>Materia</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of dataSource">
-            <td>{{data.id}}</td>
-            <td>{{data.num_processo}}</td>
-            <td>{{data.status_processo}}</td>
-            <td>{{data.ramo_processo}}</td>
-            <td>{{data.tipo_acoes}}</td>
-            <td>{{data.dsc_materia_processo}}</td>
-            <td><button mat-button class="btn btn-uam-sm m-2" color="primary" (click)="abrirDetalhes(data.id)"><i class="fa-solid fa-circle-info fa-xl"></i></button></td>
-          </tr>
-        </tbody>
-      </nz-table>
+      <div class="table-responsive">
+        <nz-table [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataSource">
+          <thead>
+            <tr>
+              <th>Cod.</th>
+              <th>Nr. Processo</th>
+              <th>Status</th>
+              <th>Ramo</th>
+              <th>Tipo</th>
+              <th>Materia</th>
+              <th nz-th>Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of dataSource">
+              <td>{{data.id}}</td>
+              <td>{{data.num_processo}}</td>
+              <td>{{data.status_processo}}</td>
+              <td>{{data.ramo_processo}}</td>
+              <td>{{data.tipo_acoes}}</td>
+              <td>{{data.dsc_materia_processo}}</td>
+              <td><button mat-button class="btn btn-info-sm m-2" color="primary" (click)="abrirDetalhes(data.id)"><i class="fa-solid fa-circle-info"></i></button></td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+
     </div>
   </div>
 </div>

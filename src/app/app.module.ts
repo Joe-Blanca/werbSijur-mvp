@@ -29,6 +29,13 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { ProcessDetalheComponent } from './modules/processo/pages/processoDetalhe/processoDetalhe.html.component';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { AdvogadosComponent } from './modules/processo/components/advogados/advogados.component';
+import { PretensaoComponent } from './modules/processo/components/pretensao/pretensao.component';
+import { FasesComponent } from './modules/processo/components/fases/fases.component';
+import { PublicacaoComponent } from './modules/processo/components/publicacoes/publicacoes.component';
+import { ServicosContratadosComponent } from './modules/processo/components/financeiro/servicos-contratados/servicos-contratados.component';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { FinanceiroComponent } from './modules/processo/components/financeiro/financeiro.component';
 
 registerLocaleData(pt);
 
@@ -40,7 +47,13 @@ registerLocaleData(pt);
     SidebarComponent,
     NovoProcessoComponent,
     ProcessDetalheComponent,
-    PartesComponent
+    PartesComponent,
+    AdvogadosComponent,
+    PretensaoComponent,
+    FasesComponent,
+    PublicacaoComponent,
+    ServicosContratadosComponent,
+    FinanceiroComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +75,8 @@ registerLocaleData(pt);
     NzDividerModule,
     NzDropDownModule,
     NzTabsModule,
-    NzInputModule
+    NzInputModule,
+    NzToolTipModule
     ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR }

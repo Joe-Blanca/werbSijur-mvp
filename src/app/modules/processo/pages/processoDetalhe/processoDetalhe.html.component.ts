@@ -14,6 +14,7 @@ export class ProcessDetalheComponent {
   novoProcessoComponent!: NovoProcessoComponent;
 
   id!: number;
+  nrProcesso!: string;
 
   dataProcesso: Processo[] = [];
 
@@ -27,7 +28,7 @@ export class ProcessDetalheComponent {
       this.id = o.id;
     });
 
-    console.log('o id obtido é:' + this.id);
+    this.obtemDadosProcesso(this.id);
   }
 
   showModalFromParent() {
@@ -36,12 +37,24 @@ export class ProcessDetalheComponent {
     this.novoProcessoComponent.visibleLabel = false;
   }
 
+  obtemDadosProcesso(id: any) {
+     this.ProcessoService.getId(this.id).subscribe(
+       (retorno: Processo) => {
+          this.dataProcesso = [retorno];
+          console.log(this.dataProcesso);
+          this.nrProcesso = this.dataProcesso[0].num_processo
+       },
+       (error) => {
+         console.error(error);
+       }
+     );
+  }
+
   editarProcesso(id: any) {
     this.novoProcessoComponent.showModal();
      this.ProcessoService.getId(this.id).subscribe(
        (retorno: Processo) => {
          this.dataProcesso = [retorno];
-         console.log(this.dataProcesso);
          this.novoProcessoComponent.setDataProcesso(this.dataProcesso[0]);
        },
        (error) => {
@@ -49,5 +62,7 @@ export class ProcessDetalheComponent {
        }
      );
   }
+
+
 
 }

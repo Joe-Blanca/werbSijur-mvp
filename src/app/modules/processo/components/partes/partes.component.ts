@@ -14,16 +14,6 @@ export class PartesComponent {
   dataPartes: Partes[] = [];
   id!: number;
 
-  displayedColumns: string[] = [
-    'Parte',
-    'Nome',
-    'Participacao',
-    'Responsabilidade',
-    'Observacoes',
-    'action',
-  ];
-
-
   constructor(
     private PartesService: PartesService,
     private Route: ActivatedRoute

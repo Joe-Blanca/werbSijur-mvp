@@ -1,0 +1,30 @@
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <hr class="rounded text-uam">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataprogPagamentos">
+      <thead>
+        <tr>
+            <th>Cod.</th>
+            <th>Origem</th>
+            <th>Valor</th>
+            <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataprogPagamentos">
+          <td>{{data.COD_PAGAMENTO}}</td>
+          <td>{{data.ORIGEM}}</td>
+          <td>{{data.VLR_PAGAMENTO}}</td>
+          <td class="text-center">
+            <button mat-button class="btn btn-primary-sm m-2" title="Processar Pagamento">
+              <i class="fa-solid fa-share-from-square"></i>
+            </button>
+            <button mat-button class="btn btn-info-sm m-2" title="Detalhes do Pagamento (Destinatário, Parcelas...)">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

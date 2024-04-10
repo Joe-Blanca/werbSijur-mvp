@@ -1,16 +1,16 @@
 <div class="col-12">
   <div class="card-body p-3 border">
-    <button mat-button class="btn btn-uam-sm-light m-2" color="primary" (click)="listarServicosContratados();">
+    <button mat-button class="btn btn-uam-sm-light m-2" title="Adicionar Custa">
       <i class="fa-solid fa-square-plus"></i>
       </button>
     <hr class="rounded text-uam">
-    <nz-table  [nzShowPagination]="false" [nzFooter]="null">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataServicosContratados">
       <thead>
         <tr>
-            <th>Cod.</th>
-            <th>Contratado</th>
-            <th>Valor Total Serviço</th>
-            <th class="text-center">Ações</th>
+          <th>Cod.</th>
+          <th>Contratado</th>
+          <th>Valor Total Serviço</th>
+          <th class="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
               <i class="fa-solid fa-pen"></i>
             </button>
             <button mat-button class="btn btn-primary-sm m-2" title="Adicionar Evento">
-              <i class="fa-solid fa-square-plus"></i>
+              <i class="fa-solid fa-calendar-plus"></i>
             </button>
           </td>
         </tr>

@@ -1,0 +1,27 @@
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active text-uam" id="pills-penhora-tab" data-bs-toggle="pill" data-bs-target="#pills-penhora" type="button" role="tab" aria-controls="pills-penhora" aria-selected="false">
+          <i class="fa-solid fa-lock"></i> Penhora Bens
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-uam" id="pills-depDebito-tab" data-bs-toggle="pill" data-bs-target="#pills-depDebito" type="button" role="tab" aria-controls="pills-depDebito" aria-selected="true">
+          <i class="fa-solid fa-sack-dollar"></i><i class="fa-solid fa-minus fa-2xs"></i> Depósito Judicial (Débito)
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-uam" id="pills-depCredito-tab" data-bs-toggle="pill" data-bs-target="#pills-depCredito" type="button" role="tab" aria-controls="pills-depCredito" aria-selected="false">
+          <i class="fa-solid fa-sack-dollar"></i><i class="fa-solid fa-plus fa-2xs"></i>  Deposito Judicial (Crédito)
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-penhora" role="tabpanel" aria-labelledby="pills-penhora-tab"><app-penhora></app-penhora></div>
+      <div class="tab-pane fade" id="pills-depDebito" role="tabpanel" aria-labelledby="pills-depDebito-tab"><app-deposito-debito></app-deposito-debito></div>
+      <div class="tab-pane fade" id="pills-depCredito" role="tabpanel" aria-labelledby="pills-depCredito-tab"><app-deposito-credito></app-deposito-credito></div>
+    </div>
+    <hr class="rounded text-uam">
+  </div>
+</div>

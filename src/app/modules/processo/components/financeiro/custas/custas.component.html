@@ -1,0 +1,46 @@
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <button mat-button class="btn btn-uam-sm-light m-2" title="Adicionar Custa">
+      <i class="fa-solid fa-square-plus"></i>
+      </button>
+    <hr class="rounded text-uam">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="dataCustas">
+      <thead>
+        <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Qtde. Item</th>
+            <th>Valor Un.</th>
+            <th>Valor Total</th>
+            <th>Condição</th>
+            <th>Cod.: Fornecedor</th>
+            <th>Nome Fornecedor</th>
+            <th>Origem de Cadastro</th>
+            <th>Tipo de Pagamento</th>
+            <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataCustas">
+          <td>{{data.DT_CUSTA}}</td>
+          <td>{{data.DSC_CUSTA}}</td>
+          <td>{{data.QTDE_ITEM}}</td>
+          <td>{{data.VLR_UNITARIO}}</td>
+          <td>{{data.VLR_TOTAL}}</td>
+          <td>{{data.DSC_COND_PAGAMENTO}}</td>
+          <td>{{data.ID_FORNECEDOR}}</td>
+          <td>{{data.NOME_FORNECEDOR}}</td>
+          <td>{{data.ORIGEM_CADASTRO}}</td>
+          <td class="text-center">
+            <button mat-button class="btn btn-danger-sm m-2" title="Excluir Custa">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button mat-button class="btn btn-warning-sm m-2"  title="Editar Custa">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

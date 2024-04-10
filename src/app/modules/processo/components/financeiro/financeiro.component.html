@@ -2,7 +2,12 @@
   <div class="card-body p-3 border">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active text-uam" id="pills-pagamentos-tab" data-bs-toggle="pill" data-bs-target="#pills-pagamentos" type="button" role="tab" aria-controls="pills-pagamentos" aria-selected="true">
+        <button class="nav-link active text-uam" id="pills-agendaPagamento-tab" data-bs-toggle="pill" data-bs-target="#pills-agendaPagamento" type="button" role="tab" aria-controls="pills-agendaPagamento" aria-selected="false">
+          <i class="fa-solid fa-calendar-check"></i> Programação Financeira
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-uam" id="pills-pagamentos-tab" data-bs-toggle="pill" data-bs-target="#pills-pagamentos" type="button" role="tab" aria-controls="pills-pagamentos" aria-selected="true">
           <i class="fa-solid fa-hand-holding-dollar"></i> Pagamentos
         </button>
       </li>
@@ -16,17 +21,12 @@
           <i class="fa-solid fa-user-tie"></i> Serviços Contratados
         </button>
       </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link text-uam" id="pills-agendaPagamento-tab" data-bs-toggle="pill" data-bs-target="#pills-agendaPagamento" type="button" role="tab" aria-controls="pills-agendaPagamento" aria-selected="false">
-          <i class="fa-solid fa-calendar-check"></i> Agenda de Pagamentos
-        </button>
-      </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-pagamentos" role="tabpanel" aria-labelledby="pills-pagamentos-tab">conteudo pagamento</div>
-      <div class="tab-pane fade" id="pills-custas" role="tabpanel" aria-labelledby="pills-custas-tab">conteudo custas</div>
+      <div class="tab-pane fade show active" id="pills-agendaPagamento" role="tabpanel" aria-labelledby="pills-agendaPagamento-tab"><app-progPagamentos></app-progPagamentos></div>
+      <div class="tab-pane fade" id="pills-pagamentos" role="tabpanel" aria-labelledby="pills-pagamentos-tab"><app-pagamentos></app-pagamentos></div>
+      <div class="tab-pane fade" id="pills-custas" role="tabpanel" aria-labelledby="pills-custas-tab"><app-custas></app-custas></div>
       <div class="tab-pane fade" id="pills-servicos" role="tabpanel" aria-labelledby="pills-servicos-tab"><app-servicos-contratados></app-servicos-contratados></div>
-      <div class="tab-pane fade" id="pills-agendaPagamento" role="tabpanel" aria-labelledby="pills-agendaPagamento-tab">conteudo agendaPagamento</div>
     </div>
     <hr class="rounded text-uam">
   </div>

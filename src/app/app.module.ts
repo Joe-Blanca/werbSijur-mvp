@@ -36,6 +36,14 @@ import { PublicacaoComponent } from './modules/processo/components/publicacoes/p
 import { ServicosContratadosComponent } from './modules/processo/components/financeiro/servicos-contratados/servicos-contratados.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { FinanceiroComponent } from './modules/processo/components/financeiro/financeiro.component';
+import { DistribuicoesComponent } from './modules/processo/pages/distribuicoes/distribuicoes.component';
+import { PagamentosComponent } from './modules/processo/components/financeiro/pagamentos/pagamentos.component';
+import { CustasComponent } from './modules/processo/components/financeiro/custas/custas.component';
+import { progPagamentosComponent } from './modules/processo/components/financeiro/prog-pagamentos/prog-pagamentos.component';
+import { GarantiaComponent } from './modules/processo/components/garantia/garantia.component';
+import { PenhoraComponent } from './modules/processo/components/garantia/penhora/penhora.component';
+import { DepositoDebitoComponent } from './modules/processo/components/garantia/deposito-debito/deposito-debito.component';
+import { DepositoCreditoComponent } from './modules/processo/components/garantia/deposito-credito/deposito-credito.component';
 
 registerLocaleData(pt);
 
@@ -53,7 +61,15 @@ registerLocaleData(pt);
     FasesComponent,
     PublicacaoComponent,
     ServicosContratadosComponent,
-    FinanceiroComponent
+    FinanceiroComponent,
+    DistribuicoesComponent,
+    PagamentosComponent,
+    CustasComponent,
+    progPagamentosComponent,
+    GarantiaComponent,
+    PenhoraComponent,
+    DepositoDebitoComponent,
+    DepositoCreditoComponent
   ],
   imports: [
     BrowserModule,

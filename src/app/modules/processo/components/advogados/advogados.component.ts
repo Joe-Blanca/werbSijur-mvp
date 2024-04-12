@@ -1,6 +1,6 @@
 import { AdvogadosService } from '../../services/advogados.service';
 import { Component } from '@angular/core';
-import { Advogados } from 'src/app/models/advogados.model';
+import { Advogados } from 'src/app/models/processo/advogados.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

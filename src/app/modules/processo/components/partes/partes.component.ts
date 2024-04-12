@@ -1,6 +1,6 @@
 import { PartesService } from '../../services/partes.service';
 import { Component } from '@angular/core';
-import { Partes } from 'src/app/models/partes.model';
+import { Partes } from 'src/app/models/processo/partes.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

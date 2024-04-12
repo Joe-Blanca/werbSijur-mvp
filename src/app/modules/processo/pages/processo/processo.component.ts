@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { ProcessoService } from '../../services/processo.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Processo } from 'src/app/models/processo.model';
+import { Processo } from 'src/app/models/processo/processo.model';
 import { NovoProcessoComponent } from '../../components/novo-processo/novo-processo.component';
 
 @Component({
@@ -60,6 +60,7 @@ export class ProcessoComponent {
   }
 
   showModalFromParent() {
+    this.novoProcessoComponent.tipo = 'I';
     this.novoProcessoComponent.showModal();
   }
 

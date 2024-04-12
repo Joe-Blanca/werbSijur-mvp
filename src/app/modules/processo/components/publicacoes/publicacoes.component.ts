@@ -1,6 +1,6 @@
 import { PublicacaoService } from '../../services/publicacoes.service';
 import { Component } from '@angular/core';
-import { Publicacao } from 'src/app/models/publicacao.model';
+import { Publicacao } from 'src/app/models/processo/publicacao.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

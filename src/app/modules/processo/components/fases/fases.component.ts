@@ -1,6 +1,6 @@
 import { FasesService } from '../../services/fases.service';
 import { Component } from '@angular/core';
-import { Fases } from 'src/app/models/fases.model';
+import { Fases } from 'src/app/models/processo/fases.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

@@ -1,7 +1,7 @@
 import { PenhoraService } from './../../../services/garantia/penhora.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { Penhora } from 'src/app/models/penhora.model';
+import { Penhora } from 'src/app/models/processo/penhora.model';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Penhora } from 'src/app/models/penhora.model';
   templateUrl: './penhora.component.html',
   styleUrls: ['./penhora.component.scss']
 })
-export class penhoraComponent {
+export class PenhoraComponent {
 
   datapenhora: Penhora[] = [];
   id!: number;

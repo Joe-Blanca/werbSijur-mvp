@@ -1,4 +1,4 @@
-import { ProgPagamentos } from './../../../../../models/progPagamentos.model';
+import { ProgPagamentos } from '../../../../../models/processo/progPagamentos.model';
 import { ProgPagamentosService } from './../../../services/financeiro/progPagamentos.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';

@@ -1,37 +1,37 @@
 import { DivisaoService } from './../../services/divisao.service';
 import { MotivoEncerramentoService } from './../../services/motivoEncerramento.service';
-import { MotivoEncerramento } from './../../../../models/motivoEncerramento.model';
+import { MotivoEncerramento } from '../../../../models/processo/motivoEncerramento.model';
 import { OrgaoCompetenteService } from './../../services/orgaoCompetente.service';
-import { Unidade } from './../../../../models/unidade.model';
+import { Unidade } from '../../../../models/processo/unidade.model';
 import { UnidadeService } from './../../services/unidade.service';
 import { VaraService } from './../../services/vara.service';
 import { MateriaDiscussaoService } from './../../services/materiaDiscussao.service';
-import { MateriaDiscussao } from './../../../../models/materiaDiscussao.model';
+import { MateriaDiscussao } from '../../../../models/processo/materiaDiscussao.model';
 import { tipoAcoesService } from './../../services/tipoAcoes.service';
-import { Ramo } from './../../../../models/ramo.model';
+import { Ramo } from '../../../../models/processo/ramo.model';
 import { RamoService } from '../../services/ramo.service';
 import { StatusService } from '../../services/status.service';
 import { ProcessoService } from '../../services/processo.service';
+import { Processo } from 'src/app/models/processo/processo.model';
+import { Status } from 'src/app/models/processo/status.model';
+import { TipoAcoes } from 'src/app/models/processo/tipoAcoes.model';
+import { Vara } from 'src/app/models/processo/vara.model';
+import { OrgaoCompetente } from 'src/app/models/processo/orgaoCompentente.model';
+import { Divisao } from 'src/app/models/processo/divisao.model';
+
 import {
   Component,
-  ViewChild,
   OnInit,
   Output,
   EventEmitter,
 } from '@angular/core';
-import { Processo } from 'src/app/models/processo.model';
-import { Status } from 'src/app/models/status.model';
+
 import {
   FormControl,
   FormGroup,
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { ProcessoComponent } from 'src/app/modules/processo/pages/processo/processo.component';
-import { TipoAcoes } from 'src/app/models/tipoAcoes.model';
-import { Vara } from 'src/app/models/vara.model';
-import { OrgaoCompetente } from 'src/app/models/orgaoCompentente.model';
-import { Divisao } from 'src/app/models/divisao.model';
 
 @Component({
   selector: 'app-novo-processo',
@@ -39,7 +39,7 @@ import { Divisao } from 'src/app/models/divisao.model';
 })
 export class NovoProcessoComponent implements OnInit {
   date = null;
-  typeAdd: boolean = false;
+  tipo: string = 'I';
   radioValue = 'A';
   checked = true;
   dateFormat = 'dd/MM/yyyy';
@@ -81,11 +81,11 @@ export class NovoProcessoComponent implements OnInit {
       dat_inicio: [null, Validators.required],
       dat_distribuicao: [null, Validators.required],
       dat_notificacao: [null, Validators.required],
-      num_distribuicao: [null, Validators.required],
-      num_notificacao: [null, Validators.required],
-      num_auto_infracao: [null, Validators.required],
-      numero_cda: [null, Validators.required],
-      num_registro: [null, Validators.required],
+      num_distribuicao: [null],
+      num_notificacao: [null],
+      num_auto_infracao: [null],
+      numero_cda: [null],
+      num_registro: [null],
       ind_autor_reu: [null],
       ind_recurso: [null],
       ind_administrativo: [null],
@@ -136,16 +136,15 @@ export class NovoProcessoComponent implements OnInit {
   salvarProcesso() {
     let dados = this.form.value as Processo;
 
-    if (this.form.valid) {
-      if (!dados.id) {
+   if (this.form.valid) {
+      if (this.tipo == 'I') {
         this.inserirProcesso(dados);
-      } else {
+      } else if(this.tipo == 'U') {
         this.atulizaProcesso(dados);
       }
-    } else {
-      this.form.markAllAsTouched();
-      this.form.updateValueAndValidity();
-    }
+   } else {
+      console.log('cadastro invalido')
+   }
   }
 
   inserirProcesso(processo: Processo) {
@@ -158,9 +157,14 @@ export class NovoProcessoComponent implements OnInit {
 
   atulizaProcesso(processo: Processo) {
     this.processoService.put(processo).subscribe((retorno: any) => {
+      console.log(retorno);
       this.processoCadastrado.emit();
       this.setDataProcesso(processo);
     });
+  }
+
+  setDataProcesso(processoData: Processo) {
+    this.form.patchValue(processoData);
   }
 
   onChangeDtProcesso(result: Date): void {
@@ -267,9 +271,5 @@ export class NovoProcessoComponent implements OnInit {
         this.dataDivisao = [retornoDivisao];
       }
     });
-  }
-
-  setDataProcesso(processoData: Processo) {
-    this.form.patchValue(processoData);
   }
 }

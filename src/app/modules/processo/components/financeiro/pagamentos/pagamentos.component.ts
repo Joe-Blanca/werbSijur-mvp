@@ -1,7 +1,7 @@
 import { PagamentosService } from './../../../services/financeiro/pagamentos.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { Pagamentos } from 'src/app/models/Pagamentos.model';
+import { Pagamentos } from 'src/app/models/processo/pagamentos.model';
 
 
 @Component({

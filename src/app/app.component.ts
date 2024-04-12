@@ -10,4 +10,5 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 export class AppComponent {
   title = 'werbSijur-mvp';
   size: NzButtonSize = 'large';
+  isCollapsed = false;
 }

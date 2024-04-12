@@ -9,7 +9,51 @@ body {
 }
 
 
-//bg-color
+//color
+
+.text-uam{
+  color: #26785c !important;
+}
+
+.text-uam-light
+{
+  color:#2bb486 !important;
+}
+
+.text-uam-primary{
+  color: #0043c9 !important;
+}
+
+.text-uam-primary{
+  color: #0043c9 !important;
+}
+
+.text-uam-secondary{
+  color: #4d4d4d !important;
+
+}
+
+.text-uam-info{
+  color: #05909a !important;
+}
+
+.text-uam-warning{
+  color: #e79a15 !important;
+}
+
+.text-uam-danger{
+  color: #dc3545;
+}
+
+.text-dark{
+  color: rgb(44, 44, 44);
+}
+
+.text-dark-light{
+  color: rgb(126, 126, 126);
+}
+
+//--
 .bg-uam{
   background-color:#26785c !important;
   color: aliceblue !important;
@@ -38,7 +82,12 @@ body {
 
 .bg-uam-warning{
   background-color: #e79a15;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.bg-uam-danger{
+  background-color: #dc3545;
+  color: rgb(255, 255, 255);
 }
 
 .bg-dark{
@@ -48,7 +97,12 @@ body {
 .bg-dark-light{
   background-color: rgb(126, 126, 126);
 }
+
+.dtBadge{
+  font-size: 14px;
+}
 //bg-color end
+
 
 
 //navbar
@@ -66,15 +120,44 @@ body {
   margin-left: 30px;
 }
 
+.pr-3{
+  padding-right: 30px;
+}
+
+
+.pr-4{
+  padding-right: 40px;
+}
+
+
 .pr-5{
   padding-right: 50px;
 }
 
+.pl-3{
+  padding-left: 30px;
+}
+
+
+.pl-4{
+  padding-left: 40px;
+}
+
+
+.pl-5{
+  padding-left: 50px;
+}
+
 //layout end
 
-
-
-
+.btn-float {
+  background-color:#26785c !important;
+  color: aliceblue !important;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
 
 .btn-uam
 {
@@ -132,10 +215,6 @@ body {
 }
 
 
-.text-uam{
-  color: #26785c !important;
-}
-
 .ativo
 {
   background-color: #113025 !important;
@@ -151,9 +230,8 @@ body {
   margin-bottom: 12px;
 }
 
-.sidebar{
-  height: 100vh;
-}
+//style="width: 200px; position: fixed; height: 100%; overflow-y: auto;"
+
 
 .input-lg{
   width: 100%;
@@ -202,4 +280,72 @@ nz-select-top-control{
 .text-center{
   text-align: center !important;
 }
+
+
+//layout
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #2bb486;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 0 16px;
+  padding: 2%;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+nz-footer {
+  text-align: center;
+  background-color: white !important;
+  text-align: right;
+}
+
+.nz-layout .ant-layout {
+  flex: 1;
+  display: flex;
+  height: 100vh;
+  background-color: white !important;
+}
+
+.nz-sider {
+  flex: 0 0 auto;
+  height: 100vh;
+}
+
+.nz-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: white !important;
+}
+
+
+
 

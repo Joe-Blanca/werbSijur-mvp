@@ -1,4 +1,4 @@
-import { Status } from '../../models/status.model';
+import { Status } from '../../models/processo/status.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';

@@ -1,7 +1,7 @@
 import { CustasService } from './../../../services/financeiro/custas.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
-import { Custas } from 'src/app/models/custas';
+import { Custas } from 'src/app/models/processo/custas.model';
 
 
 @Component({

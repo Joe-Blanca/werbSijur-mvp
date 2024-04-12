@@ -1,0 +1,118 @@
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Requisição"
+  (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzFooter]="null"
+  nzWidth="50%">
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="form">
+      <div class="row">
+        <div class="col-3">
+          <nz-form-item>
+            <nz-form-label *ngIf="visibleLabel" [nzSpan]="24"
+              nzFor="id"><small>*Preencha todos os campos
+                obrigatórios!</small></nz-form-label>
+            <nz-form-label *ngIf="visibleId" [nzSpan]="24"
+              nzFor="id">Cod.:</nz-form-label>
+            <nz-form-control [nzSpan]="24">
+              <input *ngIf="visibleId" class="form-control input-lg" name="id"
+                type="text" id="id" formControlName="id" readonly />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-3">
+          <nz-form-item>
+            <nz-form-label *ngIf="visibleId" [nzSpan]="24"
+              nzFor="requisitante">Solicitante</nz-form-label>
+            <nz-form-control [nzSpan]="24">
+              <input *ngIf="visibleId" class="form-control input-lg"
+                name="requisitante" type="text" id="requisitante"
+                formControlName="requisitante" readonly />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-3">
+          <nz-form-item>
+            <nz-form-label *ngIf="visibleId" [nzSpan]="24"
+              nzFor="atendente">Atendente</nz-form-label>
+            <nz-form-control [nzSpan]="24">
+              <input *ngIf="visibleId" class="form-control input-lg"
+                name="atendente" type="text" id="atendente"
+                formControlName="atendente" readonly />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-3">
+          <nz-form-item>
+            <nz-form-control [nzSpan]="24">
+              <input class="form-control input-lg"
+                name="status_requisicao" type="hidden" id="status_requisicao"
+                formControlName="status_requisicao" readonly />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12">
+          <hr class="text-uam">
+        </div>
+        <div class="col-3">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24" nzFor="dat_prazo">Prazo</nz-form-label>
+            <nz-form-control [nzSpan]="24">
+              <nz-date-picker id="dat_prazo" class="form-control input-lg"
+                formControlName="dat_prazo"
+                [nzFormat]="dateFormat"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-9">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="24"
+              nzFor="dsc_requisicao">Descrição</nz-form-label>
+            <nz-form-control [nzSpan]="24">
+              <input class="form-control input-lg" name="dsc_requisicao"
+                type="text" id="dsc_requisicao"
+                formControlName="dsc_requisicao" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-12">
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="24"
+                    nzFor="estrutura">Estrutura</nz-form-label>
+                  <nz-select id="estrutura" name="estrutura" class="input-lg"
+                    nzShowSearch nzAllowClear formControlName="estrutura">
+                    <!-- <nz-option *ngFor="let dataEstrutura of dataEstrutura" [nzLabel]="dataEstrutura.id + ' - ' + dataEstrutura.STATUS_PROCESSO" [nzValue]="dataEstrutura.id + ' - ' + dataEstrutura.STATUS_PROCESSO"></nz-option> -->
+                  </nz-select>
+                </nz-form-item>
+              </div>
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="24" nzFor="tipo">Tipo
+                    Atendimento</nz-form-label>
+                  <nz-select id="tp_requisicao" name="tp_requisicao" class="input-lg" nzShowSearch
+                    nzAllowClear formControlName="tp_requisicao">
+                    <!-- <nz-option *ngFor="let dataEstrutura of dataEstrutura" [nzLabel]="dataEstrutura.id + ' - ' + dataEstrutura.STATUS_PROCESSO" [nzValue]="dataEstrutura.id + ' - ' + dataEstrutura.STATUS_PROCESSO"></nz-option> -->
+                  </nz-select>
+                </nz-form-item>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <nz-form-label [nzSpan]="24"
+            nzFor="obs_requisicao">Observações</nz-form-label>
+          <nz-form-control [nzSpan]="24">
+            <textarea rows="6" nz-input name="obs_requisicao"
+              id="obs_requisicao" formControlName="obs_requisicao"></textarea>
+          </nz-form-control>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+          <button mat-button class="btn btn-uam-sm m-2" color="primary"
+            (click)="salvarRequisicao()">
+            <i class="fa-solid fa-save"></i> Salvar Requisição</button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>

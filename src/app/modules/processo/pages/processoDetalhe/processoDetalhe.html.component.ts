@@ -2,7 +2,7 @@ import { ProcessoService } from './../../services/processo.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NovoProcessoComponent } from '../../components/novo-processo/novo-processo.component';
-import { Processo } from 'src/app/models/processo.model';
+import { Processo } from 'src/app/models/processo/processo.model';
 
 @Component({
   selector: 'app-process-detalhe',
@@ -28,7 +28,7 @@ export class ProcessDetalheComponent {
       this.id = o.id;
     });
 
-    this.obtemDadosProcesso(this.id);
+    this.obtemDadosProcesso();
   }
 
   showModalFromParent() {
@@ -37,12 +37,11 @@ export class ProcessDetalheComponent {
     this.novoProcessoComponent.visibleLabel = false;
   }
 
-  obtemDadosProcesso(id: any) {
+  obtemDadosProcesso() {
      this.ProcessoService.getId(this.id).subscribe(
        (retorno: Processo) => {
           this.dataProcesso = [retorno];
-          console.log(this.dataProcesso);
-          this.nrProcesso = this.dataProcesso[0].num_processo
+          this.nrProcesso = this.dataProcesso[0].num_processo;
        },
        (error) => {
          console.error(error);
@@ -50,17 +49,18 @@ export class ProcessDetalheComponent {
      );
   }
 
-  editarProcesso(id: any) {
-    this.novoProcessoComponent.showModal();
-     this.ProcessoService.getId(this.id).subscribe(
-       (retorno: Processo) => {
-         this.dataProcesso = [retorno];
-         this.novoProcessoComponent.setDataProcesso(this.dataProcesso[0]);
-       },
-       (error) => {
-         console.error(error);
-       }
-     );
+  editarProcesso() {
+      this.novoProcessoComponent.tipo = 'U';
+      this.novoProcessoComponent.showModal();
+      this.ProcessoService.getId(this.id).subscribe(
+        (retorno: Processo) => {
+          this.dataProcesso = [retorno];
+          this.novoProcessoComponent.setDataProcesso(this.dataProcesso[0]);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
 

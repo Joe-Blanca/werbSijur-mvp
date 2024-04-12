@@ -2,7 +2,7 @@ import { ApiService } from './../../../../core/services/api.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { ProgPagamentos } from 'src/app/models/progPagamentos.model';
+import { ProgPagamentos } from 'src/app/models/processo/progPagamentos.model';
 
 @Injectable({
   providedIn: 'root'

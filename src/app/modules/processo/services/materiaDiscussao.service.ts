@@ -1,4 +1,4 @@
-import { MateriaDiscussao } from './../../../models/materiaDiscussao.model';
+import { MateriaDiscussao } from '../../../models/processo/materiaDiscussao.model';
 import { Observable, retry } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
 import { Injectable } from '@angular/core';

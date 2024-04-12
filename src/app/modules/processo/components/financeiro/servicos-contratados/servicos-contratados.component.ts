@@ -1,6 +1,6 @@
 import { ServicosContratadosService } from '../../../services/servicos-contratados.service';
 import { Component } from '@angular/core';
-import { ServicosContratados } from 'src/app/models/servicosContratados.model';
+import { ServicosContratados } from 'src/app/models/processo/servicosContratados.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

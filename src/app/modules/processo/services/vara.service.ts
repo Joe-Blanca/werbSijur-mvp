@@ -2,7 +2,7 @@ import { Observable, retry } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { Vara } from 'src/app/models/vara.model';
+import { Vara } from 'src/app/models/processo/vara.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-12">
+    <div class="h4 text-uam">Gestão de Requisições</div>
+  </div>
+  <div class="col-12">
+    <button mat-button class="btn btn-uam-sm m-2" title="Adicionar Requisição"
+      (click)="showModalFromParent();">
+      <i class="fa-solid fa-square-plus"></i> Adicionar
+    </button>
+    <button mat-button class="btn btn-uam-sm m-2"
+      title="Pesquisar por Requisições">
+      <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+    </button>
+  </div>
+  <div class="col-12">
+    <div class="card-body p-3 border">
+      <hr class="rounded text-uam">
+      <div class="table-responsive">
+        <nz-table [nzShowPagination]="false" [nzFooter]="null"
+          [nzData]="dataSource">
+          <thead>
+            <tr>
+              <th>Cod.</th>
+              <th>Abertura</th>
+              <th>Prazo</th>
+              <th>Descrição</th>
+              <th>Estrutura</th>
+              <th>Tipo Atendimento</th>
+              <th>Solicitante</th>
+              <th>Atendente</th>
+              <th>Status</th>
+              <th class="text-center">Detalhes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of dataSource">
+              <td>{{data.id}}</td>
+              <td>{{data.dt_inc}}</td>
+              <td><span class="{{ classData(data.dat_prazo) }}"><i class="fa-solid fa-circle"></i></span><span> {{data.dat_prazo}}</span></td>
+              <td>{{data.dsc_requisicao}}</td>
+              <td>{{data.estrutura}}</td>
+              <td>{{data.tp_requisicao}}</td>
+              <td>{{data.requisitante}}</td>
+              <td>{{data.atendente}}</td>
+              <td>
+                <span class="{{classDot(data.status_requisicao)}}"><i class="fa-solid fa-circle"></i></span>
+                <span>
+                  {{
+                    data.status_requisicao === 'A' ? ' Em Atendimento' :
+                    data.status_requisicao === 'P' ? ' Pendente' :
+                    data.status_requisicao === 'F' ? ' Finalizado' :
+                '' }}
+                </span>
+              </td>
+              <td class="text-center"><button mat-button
+                  class="btn btn-info-sm m-2" color="primary"
+                  (click)="abrirDetalhes(data.id)">
+                  <i class="fa-solid fa-circle-info"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-novo-requisicao></app-novo-requisicao>

@@ -1,6 +1,6 @@
 import { PretensaoService } from '../../services/pretensao.service';
 import { Component } from '@angular/core';
-import { Pretensao } from 'src/app/models/pretensao.model';
+import { Pretensao } from 'src/app/models/processo/pretensao.model';
 import { ActivatedRoute, Route } from '@angular/router';
 
 

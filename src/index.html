@@ -34,28 +34,5 @@
         });
     });
   </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const botaoMenu = document.getElementById('botaoMenu');
-    const sidebar = document.getElementById('sidebar');
-    const content = document.getElementById('content');
-
-    botaoMenu.addEventListener('click', function() {
-
-
-      if (sidebar.style.display === 'none') {
-        sidebar.style.display = 'block';
-        content.classList.remove('col-12');
-        content.classList.add('col-10');
-      } else {
-        sidebar.style.display = 'none';
-        content.classList.remove('col-10');
-        content.classList.add('col-12');
-      }
-    });
-  });
-</script>
-
-
 </body>
 </html>

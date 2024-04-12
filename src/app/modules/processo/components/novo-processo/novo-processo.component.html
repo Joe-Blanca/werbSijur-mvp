@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Cadastrar Processo" (nzAfterOpen)="onModalOpen()" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzFooter]="null" nzWidth="80%">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Processo" (nzAfterOpen)="onModalOpen()" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [nzFooter]="null" nzWidth="80%">
   <ng-container *nzModalContent>
     <div *ngIf="modalVisible">
       <div class="row">
@@ -12,7 +12,7 @@
                       <nz-form-label *ngIf="visibleLabel" [nzSpan]="24" nzFor="id"><small>*Preencha todos os campos obrigatórios!</small></nz-form-label>
                       <nz-form-label *ngIf="visibleId" [nzSpan]="24" nzFor="id">Cod.:</nz-form-label>
                       <nz-form-control [nzSpan]="24">
-                        <input *ngIf="visibleId" class="form-control input-lg" name="id" type="text" id="id" formControlName="id" [disabled]="true" />
+                        <input *ngIf="visibleId" class="form-control input-lg" name="id" type="text" id="id" formControlName="id" readonly />
                       </nz-form-control>
                     </nz-form-item>
                   </div>

@@ -1,1 +1,39 @@
-<p>penhora works!</p>
+<div class="col-12">
+  <div class="card-body p-3 border">
+    <button mat-button class="btn btn-uam-sm-light m-2" title="Adicionar Custa">
+      <i class="fa-solid fa-square-plus"></i>
+      </button>
+    <hr class="rounded text-uam">
+    <nz-table  [nzShowPagination]="false" [nzFooter]="null" [nzData]="datapenhora">
+      <thead>
+        <tr>
+            <th>Cod.:</th>
+            <th>Data</th>
+            <th>Patrimônio</th>
+            <th>Descrição</th>
+            <th>Valor Patrimônio</th>
+            <th>Valor Atualizado</th>
+            <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of datapenhora">
+          <td>{{data.COD_PAT}}</td>
+          <td>{{data.DT_PENHORA}}</td>
+          <td>{{data.COD_PAT}}</td>
+          <td>{{data.DSC_PAT}}</td>
+          <td>{{data.VLR_PAT}}</td>
+          <td>{{data.VLR_ATUALIZADO}}</td>
+          <td class="text-center">
+            <button mat-button class="btn btn-danger-sm m-2" title="Excluir Custa">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button mat-button class="btn btn-warning-sm m-2"  title="Editar Custa">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

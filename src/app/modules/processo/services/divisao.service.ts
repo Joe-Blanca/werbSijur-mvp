@@ -2,7 +2,7 @@ import { Observable, retry } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { Divisao } from 'src/app/models/divisao.model';
+import { Divisao } from 'src/app/models/processo/divisao.model';
 
 @Injectable({
   providedIn: 'root'

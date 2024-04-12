@@ -2,7 +2,7 @@ import { ApiService } from './../../../../core/services/api.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { Penhora } from 'src/app/models/penhora.model';
+import { Penhora } from 'src/app/models/processo/penhora.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,35 @@
+<div class="row m-5 p-5">
+  <div class="col-6">
+    <nz-timeline *ngIf="dataTimeLine">
+      <nz-timeline-item *ngFor="let data of dataTimeLine" [nzDot]="dotTemplate(data.status)">
+        <div class="card">
+          <div class="{{classDot(data.status)}}">
+            <span class="h5">{{data.header}} <strong class="text-light">{{data.user}}</strong></span>
+          </div>
+          <div class="card-body">
+            <p class="small">{{data.dt_inc}}</p>
+            <p>{{data.mensage}}</p>
+          </div>
+        </div>
+      </nz-timeline-item>
+    </nz-timeline>
+    <ng-template #create>
+      <span><i class="text-uam fa-solid fa-circle-plus fa-2xl"></i></span>
+    </ng-template>
+    <ng-template #accept>
+      <span><i class="text-uam fa-solid fa-circle-check fa-2xl"></i></span>
+    </ng-template>
+    <ng-template #comment>
+      <span><i class="text-uam-primary fa-solid fa-comments fa-2xl"></i></span>
+    </ng-template>
+    <ng-template #alertY>
+      <span><i class="text-uam-warning fa-solid fa-triangle-exclamation fa-2xl"></i></span>
+    </ng-template>
+    <ng-template #alertR>
+      <span><i class="text-uam-danger fa-solid fa-triangle-exclamation fa-2xl"></i></span>
+    </ng-template>
+    <ng-template #execute>
+      <span><i class="text-uam-light fa-solid fa-file-circle-check fa-2xl"></i></span>
+    </ng-template>
+  </div>
+</div>

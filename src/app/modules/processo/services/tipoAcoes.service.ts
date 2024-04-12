@@ -2,7 +2,7 @@ import { Observable, retry } from 'rxjs';
 import { ApiService } from '../../../core/services/api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
-import { TipoAcoes } from 'src/app/models/tipoAcoes.model';
+import { TipoAcoes } from 'src/app/models/processo/tipoAcoes.model';
 
 @Injectable({
   providedIn: 'root'
